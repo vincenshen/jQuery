@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画效果</title>
+</head>
+<body>
+    <div>
+        <img id="m1" style="display: none" src="static/mm01.jpg" alt="">
+        <img id="m2" src="static/mm02.jpg" alt="">
+        <img id="m3" style="display: none" src="static/mm03.jpg" alt="">
+        <img id="m4" style="display: none" src="static/mm04.jpg" alt="">
+        <img id="m5" src="static/mm05.jpg" alt="">
+        <img id="m6" style="display: none" src="static/mm01.jpg" alt="">
+        <img id="m7" src="static/mm02.jpg" alt="">
+    </div>
+</body>
+<script src="static/jquery.js"></script>
+<script>
+    $("#m1").slideDown(2000);
+    $("#m2").slideUp(2000);
+    $("#m3").slideToggle(2000);
+    $("#m4").fadeIn(2000);
+    $("#m5").fadeOut(2000);
+    $("#m6").fadeToggle(2000);
+    $("#m7").fadeTo("slow",0.66);
+</script>
+</html>

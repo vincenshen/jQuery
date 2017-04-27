@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <input id="text" type="text" value="请输入内容">
+        <input id="add" type="button" value="添加元素" />
+        <input id="del" type="button" value="删除元素" />
+    </div>
+    <div>
+        <ul>
+            <li>艺术家们</li>
+        </ul>
+    </div>
+</body>
+<script src="static/jquery.js"></script>
+<script>
+    $("#add").click(function () {
+        var text=$("#text").val();
+        $("ul").append("<li>"+text+"</li>");
+    });
+    $("#del").click(function () {
+        $("li").remove();
+    });
+</script>
+</html>

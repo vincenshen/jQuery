@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .item{
+            margin-top: 200px;
+            height:38px;
+            line-height: 38px;
+            background-color: #204982;
+            width:276px;
+        }
+        .menu{
+            float: left;
+            border-right: 1px solid white;
+            padding:0 10px;
+            color:white;
+            cursor: pointer;
+        }
+
+        .hide{
+            display: none;
+        }
+
+        .active{
+            background-color: #2459a2;
+        }
+        .content{
+            height:38px;
+            line-height: 38px;
+            width:276px;
+        }
+        .info{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 660px;margin: 0 auto;">
+        <div class="item">
+            <div class="menu active" a="1">菜单一</div>
+            <div class="menu" a="2">菜单二</div>
+            <div class="menu" a="3">菜单三</div>
+            <div class="menu" a="4">菜单四</div>
+        </div>
+        <div class="content">
+            <div class="info" b="1">内容一</div>
+            <div class="info hide" b="2">内容二</div>
+            <div class="info hide" b="3">内容三</div>
+            <div class="info hide" b="4">内容四</div>
+        </div>
+    </div>
+</body>
+<script src="static/jquery.js"></script>
+<script>
+    $(".menu").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+        var res=$(this).attr("a");
+//        $(this).parent().siblings().children("[b="+res+"]").removeClass("hide").siblings().addClass("hide");
+        $(this).parent().siblings().children().each(function () {
+            var res2=$(this).attr("b");
+            if(res==res2){
+                $(this).removeClass("hide");
+            }else {
+                $(this).addClass("hide");
+            }
+        })
+    });
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请输入关键字</title>
+    <style>
+        body{
+            background-color: #dddddd;
+        }
+        div{
+            top:0;
+            bottom: 0;
+            left:0;
+            right: 0;
+            text-align: center;
+            line-height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input style="color: red" type="text" value="请输入关键字">
+    </div>
+</body>
+<script src="static/jquery.js"></script>
+<script>
+    $("input").focus(function () {
+        var res=$(this).val();
+        if(res=="请输入关键字"){
+            $(this).val("");
+            $(this).css("color","black");
+        }
+    });
+    $("input").blur(function () {
+        var res=$(this).val();
+        if(res==""){
+            $(this).val("请输入关键字");
+            $(this).css("color","red");
+        }
+    });
+</script>
+</html>

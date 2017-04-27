@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #pg-head{
+            height: 58px;
+            background-color: #0b659e;
+        }
+        #menu{
+            position: absolute;
+            top: 58px;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            background-color: cornflowerblue;
+        }
+        #content{
+            position: absolute;
+            top: 58px;
+            bottom: 0;
+            left: 200px;
+            right: 0;
+            background-color: #dddddd;
+        }
+        #menu{
+            text-align: center;
+            padding-top: 20px;
+        }
+        .menu{
+            height: 30px;
+            cursor: pointer;
+            line-height: 30px;
+        }
+        .menu:hover{
+            background-color: #3989c7;
+        }
+        .subMenu a{
+            display: block;
+            height: 25px;
+            color: red;
+        }
+        .hide{
+            display: none;
+        }
+        .border001{
+            border-top: 1px solid white;
+            margin-left: 50px;
+            width: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="pg-head">
+
+    </div>
+    <div id="pg-body">
+        <div id="menu">
+            <div>
+                <div class="menu">菜单一<div class="border001"></div></div>
+                <div class="subMenu">
+                    <a href="#">选择一</a>
+                    <a href="#">选择二</a>
+                    <a href="#">选择三</a>
+                </div>
+            </div>
+            <div>
+                <div class="menu">菜单二<div class="border001"></div></div>
+                <div class="subMenu hide">
+                    <a href="#">选择一</a>
+                    <a href="#">选择二</a>
+                    <a href="#">选择三</a>
+                </div>
+            </div>
+            <div>
+                <div class="menu">菜单三<div class="border001"></div></div>
+                <div class="subMenu hide">
+                    <a href="#">选择一</a>
+                    <a href="#">选择二</a>
+                    <a href="#">选择三</a>
+                </div>
+            </div>
+            <div>
+                <div class="menu">菜单四<div class="border001"></div></div>
+                <div class="subMenu hide">
+                    <a href="#">选择一</a>
+                    <a href="#">选择二</a>
+                    <a href="#">选择三</a>
+                </div>
+            </div>
+        </div>
+        <div id="content"></div>
+    </div>
+</body>
+<script src="static/jquery.js"></script>
+<script>
+    $(".menu").click(function () {
+        $(this).next().css("display", "block");
+        $(this).parent().siblings().children(".subMenu").css("display", "none");
+    })
+</script>
+</html>

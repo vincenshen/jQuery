@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .middle{
+            position: fixed;
+            top:0;
+            bottom:0;
+            left: 0;
+            right: 0;
+            background-color: black;
+            z-index: 98;
+            opacity: 0.6;
+        }
+        .top{
+            position: fixed;
+            top:25%;
+            left: 35%;
+            right: 35%;
+            bottom: 45%;
+            z-index: 99;
+            background-color: white;
+        }
+        #info{
+            margin-left: 180px;
+            margin-top: 100px;
+        }
+        #ip{
+            padding-bottom: 10px;
+        }
+        #confirm,#cancel{
+            margin-right: 40px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bottom">
+        <input id="add" type="button" value="添加"/>
+        <table border="1" width="400px">
+            <tr>
+                <td target="ip">192.168.1.1</td>
+                <td target="port">80</td>
+                <td>
+                    <input type="button" value="编辑" class="edit"/>
+                </td>
+                <td>
+                    <input type="button" value="删除"/>
+                </td>
+            </tr>
+            <tr>
+                <td target="ip">192.168.1.2</td>
+                <td target="port">81</td>
+                <td>
+                    <input type="button" value="编辑" class="edit"/>
+                </td>
+                <td>
+                    <input type="button" value="删除"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td target="ip">192.168.1.3</td>
+                <td target="port">82</td>
+                <td>
+                    <input type="button" value="编辑" class="edit"/>
+                </td>
+                <td>
+                    <input type="button" value="删除"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <div class="middle hide"></div>
+        <div class="top hide">
+            <div id="info">
+                <div id="ip">主机IP：<input type="text" value="" name="ip"/></div>
+                <div id="port">端口号：<input type="text" value="" name="port"/></div>
+                <input id="confirm" type="button" value="确认">
+                <input id="cancel" type="button" value="取消">
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="static/jquery.js"></script>
+<script>
+    $("#add").click(function () {
+        $(".hide").css("display","block");
+    });
+    $("#cancel").click(function () {
+        $(".hide").css("display","none");
+    });
+
+    $(".edit").click(function () {
+        $(".hide").css("display","block");
+        var tds = $(this).parent().siblings("td");
+        tds.each(function () {
+            var k=$(this).attr("target");
+            var v=$(this).text();
+            $("input[name="+k+"]").val(v);
+        });
+
+    });
+</script>
+</html>
